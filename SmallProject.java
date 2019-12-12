@@ -11,19 +11,22 @@ public class SmallProject {
         int nilaiUTS, nilaiUAS;
         int[]nilai = new int[4];
         
-        nilaiUTS = in.nextInt();
 
 		print("Nama\t:");
 		nama = in.nextLine(); 
-		nama = in.nextLine();
+		// nama = in.nextLine();
 		
 		print("NIM\t:");
 		nim = in.next();
 
+        print("Masukkan nilai\n");
+        print("Nilai UTS = ");
+        nilaiUTS = in.nextInt();
+        print("Nilai UAS = ");
+        nilaiUAS = in.nextInt();
+
 		for(int a = 0; a < nilai.length; a++) {
-			print("Nilai ke-" + (a+1) + "\n");
-			
-			print("Nilai\t:");
+			print("Nilai tugas "+(a+1)+ " : ");
 			nilai[a] = in.nextInt();
 		}
 
