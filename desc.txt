@@ -3,4 +3,24 @@ ANGGOTA KELOMPOK
 - WINDHI NUR SAFITRI  |  M3119087
 - YOGA PRATAMA        |  M3119089
 - YULANDA TRI WAHYUNI |  M3119091
-.
+
+DESC
+Pada small project kali ini kami membuat program yang berfungsi untuk mengolah nilai mahasiswa yang nantinya akan dimasukkan sebagai nilai akhir semester.
+INPUT:
+1. Nama,
+2. NIM,
+3. Nilai tugas(2),
+4. Nilai ulangan harian(2),
+5. Nilai UTS,
+6. Nilai UAS.
+
+Apabila nilai yang diinputkan masuk dalam rentang (0-100), maka program akan dilanjutkan untuk menampilkan output. Sedangkan apabila nilai yang diinputkan diluar rentang(0-100), maka program tidak akan dilanjutkan dan akan keluar pesan error. 
+
+Setelah menginputkan data pada setiap fitur maka akan menampilkan hasil dari inputan yaitu :
+1. Nama,
+2. NIM,
+3. Elemen-elemen nilai,
+4. Total nilai(jumlah dari keseluruhan nilai),
+5. Nilai akhir(30%UAS+20%UTS+15%Tugas,15%UH),
+6. Indeks Nilai akhir : ............... ( yang menampilkan nilai indeks apabila nilai <=55 maka akan menampilkan nilai E, dan apabila nilai 55-59 maka akan bernilai D, dan apabila nilai 60-64 maka akan bernilai C, dan apabila nilai 65-69 maka akan bernilai C+, dan apabila nilai 70-74 maka akan bernilai B, dan apabila nilai 75-79 maka akan bernilai B+, dan apabila nilai 80-84 maka akan bernilai A-, dan apabila nilai 85-100 maka akan bernilai A ).
+7. Predikat lulus atau tidak lulus. Predikat lulus apabila nilai akhir lebih dari 75 dan predikat tidak lulus apabila nilai kurang dari 75.
