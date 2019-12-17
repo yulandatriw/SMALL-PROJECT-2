@@ -3,6 +3,8 @@ import java.util.Scanner;
 public class SmallProject {
 
     static Scanner in = new Scanner(System.in);
+
+    //indeks method
     static void indeks(int i) {
 		if(i < 0 || i > 100) {
 			System.out.println("Maaf, input salah");
@@ -24,6 +26,7 @@ public class SmallProject {
 			System.out.println("E");
 		}
 	}
+	//print string method
     static void print(String data){
         System.out.print(data);
     
@@ -48,6 +51,7 @@ public class SmallProject {
         print("---------------------");
         print("\nMasukkan nilai" + "\n");
 
+        //input nilai tugas
         int sumTugas = 0;
         int[]nilaiTugas = new int[countTugas];
         for(int a = 0; a < countTugas; a++){
@@ -55,6 +59,7 @@ public class SmallProject {
             nilaiTugas[a] = in.nextInt();
             sumTugas+=nilaiTugas[a];
         }
+       	//input nilai ulangan harian
         int sumUH = 0;
         int[]nilaiUH = new int[countUH];
         for(int a = 0; a < countUH ; a++){
@@ -62,9 +67,9 @@ public class SmallProject {
             nilaiUH[a] = in.nextInt();
             sumUH += nilaiUH[a];
         }
-        double avgTugas = sumTugas/countTugas;
+        double avgTugas = sumTugas/countTugas;//rata2 nilai tugas
 
-        double avgUH = sumUH/countUH;
+        double avgUH = sumUH/countUH;//rata2 nilai ulangan harian
 
         int uas, uts;
         print("Nilai UTS\t: ");
@@ -72,23 +77,9 @@ public class SmallProject {
         print("Nilai UAS\t: ");
         uas = in.nextInt();
         
-        // int[]nilai = new int[100];
-        // for(int a = 0; a < countTugas; a++){
-        //     nilaiTugas[a] = nilai[a];
-        // }
-        // for(int a = 0; a < (countUH + 1); a++){
-        //     nilaiUH[a+countTugas] = nilaiUH[a];
-        // }
-        // nilai[countTugas+countUH + 1] = uts;
-        // nilai[countTugas+countUH + 2] = uas;
-
-        // for(int a = 0; a < nilai.length; a++){
-        //     System.out.println(nilai[a]);
-        // }
-
-        double sum = sumUH + sumTugas + uas + uts;
+        double sum = sumUH + sumTugas + uas + uts;//jumlah nilai
        
-        double na = (0.4*uas + 0.3*uts + 0.15*avgTugas + 0.15*avgUH);
+        double na = (0.4*uas + 0.3*uts + 0.15*avgTugas + 0.15*avgUH);//hitung nilai akhir
 
         print("=======================\n");
         
