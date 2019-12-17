@@ -1,4 +1,5 @@
 import java.util.Scanner;
+
 public class SmallProject {
 
     static Scanner in = new Scanner(System.in);
@@ -27,11 +28,9 @@ public class SmallProject {
         System.out.print(data);
     
     }
-    static double nilaiAkhir(double uas, double uts, double sumTugas, double sumUH){
-        return (0.4*uas) + (0.3*uts) + (0.15*sumTugas/2) + (0.15*sumUH/2);
-    }
     public static void main(String[] args) {
-        System.out.println("RAPORT");
+
+        System.out.println("== SISTEM PENGHITUNG NILAI AKHIR RAPORT ==");
 
         String nama, nim;
         print("Nama\t: ");
@@ -39,65 +38,96 @@ public class SmallProject {
         print("NIM\t: ");
         nim = in.next();
 
-        print("Masukkan nilai" + "\n");
+        int countTugas, countUH;
+
+        print("Ada berapa nilai tugas yang diinputkan\n=>");
+        countTugas = in.nextInt();
+        print("Ada berapa nilai ulangan harian yang diinputkan\n=>");
+        countUH = in.nextInt();
+
+        print("---------------------");
+        print("\nMasukkan nilai" + "\n");
 
         int sumTugas = 0;
-        int[]nilai = new int[6];
-        for(int a = 0; a < 2; a++){
+        int[]nilaiTugas = new int[countTugas];
+        for(int a = 0; a < countTugas; a++){
             print("Nilai tugas " + (a+1) + "\t: ");
-            nilai[a] = in.nextInt();
-            sumTugas+=nilai[a];
+            nilaiTugas[a] = in.nextInt();
+            sumTugas+=nilaiTugas[a];
         }
         int sumUH = 0;
-        for(int a = 2; a < 4 ; a++){
-            print("Nilai ulangan harian " + (a-1) + "\t: ");
-            nilai[a] = in.nextInt();
-            sumUH += nilai[a];
+        int[]nilaiUH = new int[countUH];
+        for(int a = 0; a < countUH ; a++){
+            print("Nilai ulangan harian " + (a+1) + "\t: ");
+            nilaiUH[a] = in.nextInt();
+            sumUH += nilaiUH[a];
         }
-        int uas, uts;
+        double avgTugas = sumTugas/countTugas;
 
+        double avgUH = sumUH/countUH;
+
+        int uas, uts;
         print("Nilai UTS\t: ");
         uts = in.nextInt();
         print("Nilai UAS\t: ");
         uas = in.nextInt();
         
-        nilai[4]= uts;
-        nilai[5]= uas;
+        // int[]nilai = new int[100];
+        // for(int a = 0; a < countTugas; a++){
+        //     nilaiTugas[a] = nilai[a];
+        // }
+        // for(int a = 0; a < (countUH + 1); a++){
+        //     nilaiUH[a+countTugas] = nilaiUH[a];
+        // }
+        // nilai[countTugas+countUH + 1] = uts;
+        // nilai[countTugas+countUH + 2] = uas;
 
-        double sum = 0;
-        for(int a = 0; a < nilai.length; a++){
-           sum+=nilai[a];
-        }
+        // for(int a = 0; a < nilai.length; a++){
+        //     System.out.println(nilai[a]);
+        // }
+
+        double sum = sumUH + sumTugas + uas + uts;
        
-        double na = nilaiAkhir(uas, uts, sumTugas, sumUH);
+        double na = (0.4*uas + 0.3*uts + 0.15*avgTugas + 0.15*avgUH);
 
-        print("====================\n");
+        print("=======================\n");
         
         boolean statusNilai = true;
-        for(int a = 0; a < nilai.length; a++){
-            if(nilai[a] < 0 || nilai[a] > 100){
+        for(int a = 0; a < nilaiTugas.length; a++){
+            if(nilaiTugas[a] < 0 || nilaiTugas[a] > 100){
                 statusNilai = false;
-            }
+            }   
         }
+        for(int a = 0; a < nilaiUH.length; a++){
+            if(nilaiUH[a] < 0 || nilaiUH[a] > 100){
+                statusNilai = false;
+            }   
+        }
+        if(uts < 0 || uts > 100){
+            statusNilai = false;
+        }else if( uas < 0 || uas > 100){
+            statusNilai = false;
+        }
+
         if(statusNilai == true){
             print("Nama\t: " + nama);
             print("\nNIM\t: " + nim);
-            print("\nDAFTAR NILAI\n");
-            for(int a = 0; a < 2; a++){
-                print("\nTugas " + (a+1) + "\t: " + nilai[a]);
+            print("\nDAFTAR NILAI");
+            for(int a = 0; a < countTugas; a++){
+                print("\nTugas " + (a+1) + "\t: " + nilaiTugas[a]);
             }
-            for(int a = 2; a < 4 ; a++){
-                print("\nUH " + (a-1) + "\t: " + nilai[a]);
+            for(int a = 0; a < countUH ; a++){
+                print("\nUH " + (a+1) + "\t: " + nilaiUH[a]);
             }
-                print("\nUTS\t: " + nilai[4]);
+            print("\nUTS\t: " + uts);
 
-                print("\nUAS\t: " + nilai[5]);
+            print("\nUAS\t: " + uas);
                 
-                print("\n==================");
-                print("\nJumlah nilai\t: " + sum);
-                print("\nNilai akhir\t: " + na);
-                print("\nIndeks\t\t: ");
-                indeks((int)na);
+            print("\n--------------------\n");
+            print("Jumlah nilai\t: " + sum);
+            print("\nNilai akhir\t: " + na);
+            print("\nIndeks\t\t: ");
+            indeks((int)na);
             }
         else{
             print("Maaf, nilai tidak valid");
