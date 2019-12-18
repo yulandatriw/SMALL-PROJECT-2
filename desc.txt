@@ -9,8 +9,8 @@ Pada small project kali ini kami membuat program yang berfungsi untuk mengolah n
 INPUT:
 1. Nama,
 2. NIM,
-3. Nilai tugas(2),
-4. Nilai ulangan harian(2),
+3. Nilai tugas,
+4. Nilai ulangan harian,
 5. Nilai UTS,
 6. Nilai UAS.
 
